@@ -10,6 +10,10 @@ app.use(cors({
     origin: "*"
 }));
 
+app.get("/", (req, res) => {
+    res.send("Dynamic Form Backend is Live 🚀");
+});
+
 const PORT = process.env.PORT || 4000
 
 app.use("/auth", authRouter);
