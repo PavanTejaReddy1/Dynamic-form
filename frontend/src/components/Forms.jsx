@@ -11,7 +11,7 @@ function Forms() {
   async function getForms() {
     try {
       const res = await axios.get(
-        `http://dynamic-form-z5p8.onrender.com/auth/getForms/${id}`
+        `https://dynamic-form-z5p8.onrender.com/auth/getForms/${id}`
       );
       setForms(res.data.forms);
     } catch (err) {
@@ -26,7 +26,7 @@ function Forms() {
   async function removeForm(index) {
     try {
       const res = await axios.delete(
-        `http://dynamic-form-z5p8.onrender.com/auth/deleteForm/${id}/${index}`
+        `https://dynamic-form-z5p8.onrender.com/auth/deleteForm/${id}/${index}`
       );
 
       toast.success(res.data.message, {
