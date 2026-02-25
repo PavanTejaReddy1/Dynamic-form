@@ -157,7 +157,7 @@ function DynamicFields() {
         theme: "light",
       });
     } catch (err) {
-      toast.error(err.response?.data?.message, {
+      toast.error("Login to start building your form", {
         position: "top-left",
         autoClose: 2000,
         theme: "light",
