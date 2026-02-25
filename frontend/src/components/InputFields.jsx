@@ -26,7 +26,55 @@ function InputFields() {
     <>
       {/* TOP NAV */}
       <div className="w-full bg-white border-b shadow-sm">
-        <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+
+        {/* MOBILE */}
+        <div className="md:hidden px-4 py-4">
+
+          {/* Title */}
+          <h2 className="text-center text-lg font-bold text-gray-800 mb-3">
+            Dynamic Form Builder
+          </h2>
+
+          {/* Buttons Row */}
+          <div className="flex justify-center gap-5">
+            {name ? (
+              <>
+                <button
+                  onClick={logout}
+                  className="bg-red-500 hover:bg-red-600 text-white text-sm px-4 py-2 rounded-lg transition rounded"
+                >
+                  Logout
+                </button>
+
+                <button
+                  onClick={() => navigate("/showForms")}
+                  className="bg-indigo-600 hover:bg-indigo-700 text-white text-sm px-4 py-2 rounded-lg transition rounded"
+                >
+                  My Forms
+                </button>
+              </>
+            ) : (
+              <>
+                <button
+                  onClick={() => navigate("/login")}
+                  className="bg-indigo-600 hover:bg-indigo-700 text-white text-sm px-4 py-2 rounded-lg transition rounded"
+                >
+                  Login
+                </button>
+
+                <button
+                  onClick={() => navigate("/showForms")}
+                  className="bg-indigo-600 hover:bg-indigo-700 text-white text-sm px-4 py-2 rounded-lg transition rounded"
+                >
+                  My Forms
+                </button>
+              </>
+            )}
+          </div>
+        </div>
+
+        {/* DESKTOP */}
+        <div className="hidden md:flex max-w-6xl mx-auto px-4 py-3 items-center justify-between">
 
           {/* LEFT */}
           <div>
@@ -37,7 +85,7 @@ function InputFields() {
                 </p>
                 <button
                   onClick={logout}
-                  className="bg-red-500 rounded hover:bg-red-600 text-white text-xs px-3 py-1 rounded-md transition"
+                  className="bg-red-500 hover:bg-red-600 text-white text-xs px-3 py-1 rounded-md transition rounded"
                 >
                   Logout
                 </button>
@@ -45,7 +93,7 @@ function InputFields() {
             ) : (
               <button
                 onClick={() => navigate("/login")}
-                className="bg-indigo-600 rounded hover:bg-indigo-700 text-white px-4 py-1.5 rounded-md text-sm transition"
+                className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-1.5 rounded-md text-sm transition rounded"
               >
                 Login
               </button>
@@ -54,7 +102,7 @@ function InputFields() {
 
           {/* CENTER */}
           <div className="text-center">
-            <h2 className="text-lg md:text-xl font-bold text-gray-800">
+            <h2 className="text-xl font-bold text-gray-800">
               Dynamic Form Builder
             </h2>
           </div>
@@ -62,10 +110,11 @@ function InputFields() {
           {/* RIGHT */}
           <button
             onClick={() => navigate("/showForms")}
-            className="bg-indigo-600 rounded hover:bg-indigo-700 text-white px-4 py-1.5 rounded-md text-sm transition"
+            className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-1.5 rounded-md text-sm transition rounded"
           >
             My Forms
           </button>
+
         </div>
       </div>
 
