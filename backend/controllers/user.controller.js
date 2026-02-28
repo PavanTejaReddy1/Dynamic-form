@@ -51,7 +51,7 @@ const signup = async(req, res) => {
             return res.status(400).json({message: "Unable to save user"});
         }
 
-        return res.status(200).json({message: "Account created", user});
+        return res.status(200).json({message: "Account created now you can login", user});
     } catch(err) {
         res.status(500).json({message: err.message});
     }
