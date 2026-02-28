@@ -38,21 +38,27 @@ function InputFields() {
           {/* Buttons Row */}
           <div className="flex justify-center gap-5">
             {name ? (
-              <>
-                <button
-                  onClick={logout}
-                  className="bg-red-500 hover:bg-red-600 text-white text-sm px-4 py-2 rounded-lg transition rounded"
-                >
-                  Logout
-                </button>
+              <div className="flex flex-col">
+                <p className="text-sm font-medium text-gray-700">
+                  Welcome, <span className="text-indigo-600">{name}</span>
+                </p>
+                
+                <div className="flex gap-12">
+                  <button
+                    onClick={logout}
+                    className="bg-red-500 hover:bg-red-600 text-white pl-4 pr-4 rounded-lg transition rounded"
+                  >
+                    Logout
+                  </button>
 
-                <button
-                  onClick={() => navigate("/showForms")}
-                  className="bg-indigo-600 hover:bg-indigo-700 text-white text-sm px-4 py-2 rounded-lg transition rounded"
-                >
-                  My Forms
-                </button>
-              </>
+                  <button
+                    onClick={() => navigate("/showForms")}
+                    className="bg-indigo-600 hover:bg-indigo-700 text-white text-sm p-0.5 pl-4 pr-4 rounded-lg transition rounded"
+                  >
+                    My Forms
+                  </button>
+                </div>
+              </div>
             ) : (
               <>
                 <button
