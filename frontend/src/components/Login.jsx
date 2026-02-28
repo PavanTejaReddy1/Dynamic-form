@@ -16,7 +16,7 @@ function Login() {
         }
 
         try {
-            const user = await axios.post("https://dynamic-form-z5p8.onrender.com/auth/login", body);
+            const user = await axios.post("https://dynamic-form-production-e056.up.railway.app/auth/login", body);
 
             localStorage.setItem("id", user.data.user._id);
             localStorage.setItem("name", user.data.user.name);
