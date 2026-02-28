@@ -20,7 +20,7 @@ function Signup() {
         }
 
         try {
-            const user = await axios.post("https://dynamic-form-z5p8.onrender.com/auth/signup", body);
+            const user = await axios.post("https://dynamic-form-production-e056.up.railway.app/auth/signup", body);
 
             toast.success(user.data.message, { theme: "dark" });
 
