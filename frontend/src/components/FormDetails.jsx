@@ -42,21 +42,7 @@ function FormDetails() {
       </div>
     );
   }
-
-  async function share() {
-    const url = `${window.location.origin}/form/${id}/${index}`;
-
-    if (navigator.share) {
-      await navigator.share({
-        title: "Shared Form",
-        url: url,
-      });
-    } else {
-      navigator.clipboard.writeText(url);
-      alert("Link copied to clipboard!");
-    }
-  }
-
+  
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center px-4 py-12">
 
@@ -102,22 +88,6 @@ function FormDetails() {
             Submit
           </button>
         </form>
-      </div>
-
-      <div className="flex gap-4 mt-8">
-        <button
-          onClick={share}
-          className="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-lg shadow transition"
-        >
-          Share
-        </button>
-
-        <button
-          onClick={() => navigate("/showForms")}
-          className="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg shadow transition"
-        >
-          Back
-        </button>
       </div>
     </div>
   );
