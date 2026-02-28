@@ -5,6 +5,8 @@ import { useNavigate, useParams } from "react-router-dom";
 function FormDetails() {
   const { id, index } = useParams();
   const [form, setForm] = useState(null);
+  const [loading, setLoading] = useState(true);
+  
   const navigate = useNavigate();
 
   async function getFormDetails() {
@@ -16,12 +18,22 @@ function FormDetails() {
       setForm((await res).data.form);
     } catch (err) {
       console.log(err.response?.data?.message);
+    } finally {
+      setLoading(false);
     }
   }
 
   useEffect(() => {
     getFormDetails();
   }, [id]);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-screen text-xl font-semibold text-gray-600 bg-gray-50">
+        Loading...
+      </div>
+    );
+  }
 
   if (!form) {
     return (
