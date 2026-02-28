@@ -5,6 +5,8 @@ import { toast } from "react-toastify";
 
 function Forms() {
   const [forms, setForms] = useState([]);
+  const [loading, setLoading] = useState(true);
+  
   const navigate = useNavigate();
   const id = localStorage.getItem("id");
 
@@ -16,6 +18,8 @@ function Forms() {
       setForms(res.data.forms);
     } catch (err) {
       console.log(err.response?.data?.message);
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -61,7 +65,8 @@ function Forms() {
         </div>
 
         {id ? (
-          forms.length > 0 ? (
+          loading ? <p>Loading...</p>
+          : forms.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {forms.map((f, i) => (
                 <div
