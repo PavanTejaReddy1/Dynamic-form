@@ -48,6 +48,20 @@ function Forms() {
       });
     }
   }
+  
+  async function share(index) {
+    const url = `${window.location.origin}/form/${id}/${index}`;
+    
+    if (navigator.share) {
+      await navigator.share({
+        title: "Shared Form",
+        url: url,
+      });
+    } else {
+      navigator.clipboard.writeText(url);
+      alert("Link copied to clipboard!");
+    }
+  }
 
   return (
     <div className="min-h-screen bg-gray-50 py-10 px-4">
@@ -120,10 +134,10 @@ function Forms() {
 
                   <div className="flex gap-3 mt-6">
                     <button
-                      onClick={() => navigate(`/form/${id}/${i + 1}`)}
+                      onClick={() => share(i + 1)}
                       className="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white py-2 rounded-lg text-sm transition"
                     >
-                      Open
+                      Share
                     </button>
 
                     <button
