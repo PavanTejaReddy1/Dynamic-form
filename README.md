@@ -1,6 +1,6 @@
 🚀 Dynamic Form Builder (Full Stack)
 
-A full-stack web application where users can register, login, create custom forms, manage them, and share forms publicly.
+A full stack web application where users can register, login, create custom forms, manage them, and share forms publicly.
 
 🌐 Live Demo: https://dynamic-form5.netlify.app/
 
